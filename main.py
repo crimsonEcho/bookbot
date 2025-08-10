@@ -1,12 +1,24 @@
+import sys
+
 from stats import get_book_text
-from stats import book_characters
+from stats import char_report
 
 def main():
-    word_list = get_book_text()
-    word_count = len(word_list)
-    char_count = book_characters()
-    print(f"{word_count} words found in the document.")
-    print(char_count)
+
+    if __name__ == "__main__":
+        if len(sys.argv) < 2:
+            print("Usage: python3 main.py <path_to_book>")
+            sys.exit(1)
+
+        else: 
+            print("|:.  BOOKBOT  .:|\n")
+            print("Analyzing book provided at " f"{sys.argv[1]}" "\n")
+            print("|:.  Word Count\n")
+            print("Found " f"{len(get_book_text())} total words\n")
+            print("|:.  Character Count\n")
+            print(char_report() + "\n")
+            print("|:.  END  .:|")
+   
+
             
 main()
-
